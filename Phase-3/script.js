@@ -27,8 +27,8 @@ document.querySelector(".item-form").addEventListener("submit",function (e) {
     row.innerHTML = `
     <td>${name}</td>
     <td>${qty}</td>
-    <td>${price.toFixed(2)}</td>
-    <td>${total.toFixed(2)}</td>
+    <td>₹${price.toFixed(2)}</td>
+    <td>₹${total.toFixed(2)}</td>
     <td><button class = "delete-btn">X</button></td>
 `;
 
@@ -37,7 +37,9 @@ document.querySelector(".item-form").addEventListener("submit",function (e) {
 
     // Cancel Button or cross button to remove the row
     row.querySelector(".delete-btn").addEventListener("click", function() {
-        const rowTotal = Number(row.children[3].innerText);
+        const rowTotalText = row.children[3].innerText.replace("₹", "");
+        const rowTotal = Number(rowTotalText);
+
         const currentTotal = Number(totalAmount.innerText);
         totalAmount.innerText = (currentTotal - rowTotal).toFixed(2);
 
