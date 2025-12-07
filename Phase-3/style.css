@@ -109,3 +109,17 @@ p {
     font-size: 18px;
     font-weight: 600;
 }
+
+/* Delete Button */
+.delete-btn {
+    background-color: #dc2626;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: #b91c1c;
+}

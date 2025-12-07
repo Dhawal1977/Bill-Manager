@@ -17,6 +17,11 @@ document.querySelector(".item-form").addEventListener("submit",function (e) {
     const price = Number(itemPriceInput.value);
     const total = qty * price;
 
+    if (name.trim() === "" | qty <= 0 | price <= 0) {
+        alert ("Please enter valid name, quantity > 0, and price > 0!");
+        return;
+    }
+
     // Create a new table row -:
     const row = document.createElement("tr");
     row.innerHTML = `
@@ -24,10 +29,20 @@ document.querySelector(".item-form").addEventListener("submit",function (e) {
     <td>${qty}</td>
     <td>${price.toFixed(2)}</td>
     <td>${total.toFixed(2)}</td>
+    <td><button class = "delete-btn">X</button></td>
 `;
 
     // Add row to table body
     billBody.appendChild(row);
+
+    // Cancel Button or cross button to remove the row
+    row.querySelector(".delete-btn").addEventListener("click", function() {
+        const rowTotal = Number(row.children[3].innerText);
+        const currentTotal = Number(totalAmount.innerText);
+        totalAmount.innerText = (currentTotal - rowTotal).toFixed(2);
+
+        row.remove();
+    })
 
 
     // Total Amount
