@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill-Manager</title>
+</head>
+<body>
+    <h1>Bill Manager</h1>
+    <p>A simple app to calculate bill amount.</p>
+    
+<!--Item input form-->
+
+    <form>
+        <label>
+            Item name:
+            <input type="text" required>
+        </label>
+
+        <label>
+            Quantity:
+            <input type="number" required>
+        </label>
+
+        <label>
+            Price:
+            <input type="number" step="0.01" min="0" required>
+        </label>
+
+        <button type ="submit">Add Item</button>    
+    </form>
+
+<!--Bill Table-->
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Qty</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <h2>Total Amount: Rs. 0</h2>
+</body>
+</html>
